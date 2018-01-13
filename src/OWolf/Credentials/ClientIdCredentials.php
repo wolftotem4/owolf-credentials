@@ -37,7 +37,7 @@ class ClientIdCredentials implements CredentialsInterface
      */
     public function getRequest($method, $url, array $options = [])
     {
-        array_set($options, 'headers.Authorization', 'Client-ID ' . $this->clientId);
+        $options['headers']['Authorization'] = 'Client-ID ' . $this->clientId;
 
         return $this->provider->getRequestFactory()->getRequestWithOptions($method, $url, $options);
     }
